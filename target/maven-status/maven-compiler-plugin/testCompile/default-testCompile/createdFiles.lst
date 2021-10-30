@@ -1,0 +1,5 @@
+org\busyqa\testCases\PutRESTJSONTest.class
+org\busyqa\testCases\GetRESTXMLTest.class
+org\busyqa\testCases\DeleteRESTJSONTest.class
+org\busyqa\testCases\PostRESTJSONTest.class
+org\busyqa\testCases\BooksAPIe2eTest.class
