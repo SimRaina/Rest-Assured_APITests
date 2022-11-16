@@ -1,4 +1,4 @@
-package org.busyqa.testCases;
+package org.test.testCases;
 
 import org.testng.annotations.Test;
 

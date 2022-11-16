@@ -1,6 +1,6 @@
-package org.busyqa.testCases;
+package org.test.testCases;
 
-import org.busyqa.ExcelReader.ExcelReaderTest;
+import org.test.ExcelReader.ExcelReaderTest;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;

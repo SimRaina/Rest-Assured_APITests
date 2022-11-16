@@ -1,4 +1,4 @@
-package org.busyqa.ExcelReader;
+package org.test.ExcelReader;
 
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;

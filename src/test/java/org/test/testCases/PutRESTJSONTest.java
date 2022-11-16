@@ -1,4 +1,4 @@
-package org.busyqa.testCases;
+package org.test.testCases;
 
 import org.json.simple.JSONObject;
 import org.testng.annotations.Test;
