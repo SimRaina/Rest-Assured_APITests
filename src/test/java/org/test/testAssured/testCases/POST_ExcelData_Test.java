@@ -21,6 +21,7 @@ public class POST_ExcelData_Test {
     String filepath=System.getProperty("user.dir") + "\\Resources\\Data\\";
     ArrayList<String> data = new ArrayList<String>();
 	
+	@SuppressWarnings("unchecked")
 	@Test
 	public void postExcelDataTest(){
 		
@@ -31,9 +32,6 @@ public class POST_ExcelData_Test {
 		String title=data.get(2);
 		String body=data.get(3);
 		
-		
-		// Using JSONObject from json-simpole package
-		
 		JSONObject json = new JSONObject();
 		json.put("userId", userid);
 		json.put("title", title);
@@ -43,7 +41,6 @@ public class POST_ExcelData_Test {
 		System.out.println("===============================================");
 		System.out.println(jsonstr);
 		System.out.print("===============================================");
-		
 		
 		given().
 		header("Content-Type","application/json").  // setting Content-Type for the POST request

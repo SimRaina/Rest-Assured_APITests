@@ -16,8 +16,6 @@ public class GET_Typicode_AllUsers {
 	
 	static String host = ConfigReader.getValueFromPropertyFile("Typicode_Host");
 
-
-
     @Test
     public static void getTypicodeAllUsers() {
         Response response = 
@@ -27,12 +25,9 @@ public class GET_Typicode_AllUsers {
                 log().all().
                 extract().response(); 
         
-        // Captures values for different fields from the response header
-        
         String contentType = response.getContentType();
         System.out.println("Content-Type is: " + contentType);
         
-        // Capture values for different fields from the response body
         List<String> jsonResponse = response.jsonPath().getList("$"); // $ is indicating the root of the response JSON body
         
         System.out.println("Response is:"+jsonResponse);

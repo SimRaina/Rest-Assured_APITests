@@ -42,7 +42,6 @@ public class GET_ExcelData_Test {
 	
 	String resp=response.asString();
     System.out.println("Response is:" +resp);
-
 	}
  }
 }

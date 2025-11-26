@@ -7,6 +7,7 @@ import static org.hamcrest.Matchers.equalTo;
 
 public class PutRESTJSONTest {
 
+    @SuppressWarnings("unchecked")
     @Test
     public void putRestJSONTest(){
 
@@ -15,7 +16,7 @@ public class PutRESTJSONTest {
         jsonobj.put("name", "Tracey");
         jsonobj.put("job", "QA");
 
-        String request = jsonobj.toJSONString(); // to convert JSONObject to JSONString
+        String request = jsonobj.toJSONString();
 
         given().contentType("application/json").body(request).
         when().put("https://reqres.in/api/users/6").

@@ -13,8 +13,7 @@ public class Test1_XML_GET {
 	
 	String host = ConfigReader.getValueFromPropertyFile("ThomasBayer_Host");
 	
-	//Checking XML Response for single body content
-	//@Test
+	@Test
 	public void testSingleContent() {
 		given().
 		get(host+"/sqlrest/CUSTOMER/10").
@@ -23,12 +22,11 @@ public class Test1_XML_GET {
 		log().all();
 	}
 	
-	//Checking XML Response for multiple body content
-		//@Test
-		public void testMultipleContent() {
-			given().
+	@Test
+	public void testMultipleContent() {
+		given().
 			get(host+"/sqlrest/CUSTOMER/10").
-			then().
+		then().
 			body("CUSTOMER.ID", equalTo("10")).
 			body("CUSTOMER.FIRSTNAME", equalTo("Sue")).
 			body("CUSTOMER.LASTNAME", equalTo("Fuller")).body("CUSTOMER.STREET", equalTo("135 Upland Pl.")).
@@ -36,27 +34,22 @@ public class Test1_XML_GET {
 			log().all();
 		}
 		
-		//Checking complete text in one go
-		//@Test
-		public void testCompleteTextInOneGo() {
-			
-			given().
+	@Test
+	public void testCompleteTextInOneGo() {
+		given().
 			get(host+"/sqlrest/CUSTOMER/10").
-			then().
+		then().
 			body("CUSTOMER.text()", equalTo("10SueFuller135 Upland Pl.Dallas")).
 			log().all();
-		}
+	}
 		
-		//Xpath can also be used to find values
-		//@Test
-		public void testUsingXpath() {
-			given().
+	@Test
+	public void testUsingXpath() {
+		given().
 			get(host+"/sqlrest/CUSTOMER/10").
-			then().
+		then().
 			body(hasXPath("/CUSTOMER/FIRSTNAME", containsString("Sue")));
-		}
-		
-		// Xpath type 2
+	}
 		
 	@Test
 	public void testXpath2() {
@@ -65,18 +58,4 @@ public class Test1_XML_GET {
 		then().
 		body(hasXPath("/INVOICEList/INVOICE[text()='40']")).log().all();
 	}
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-
 }

@@ -1,9 +1,5 @@
 package org.test.testAssured.testCases;
 
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.hasSize;
-import static org.hamcrest.Matchers.lessThan;
-
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -19,10 +15,8 @@ public class GET_EU_Test {
 	String host = ConfigReader.getValueFromPropertyFile("EU_Host");
 	
 	@Test()
-	public void getEUTest() { // GET
+	public void getEUTest() {
 		int expectedCode=200;
-		
-		// Without using given(), when(), then()
 		
 		Response response = get(host+"/rest/v1/name/norway");
 		

@@ -13,14 +13,14 @@ public class GetRESTXMLTest {
     @Test
     public void getRESTXMLTest(){
 
-        given().            // given() is to set pre-requisite -> setup headers/requestbody
+        given(). 
         when().
-                get(url).
+            get(url).
         then().
-                statusCode(200).
-                header("Content-Type", "application/xml; charset=utf-8").
-                body("MRData.CircuitTable.Circuit[0].CircuitName", equalTo("Albert Park Grand Prix Circuit")).
-                body("MRData.CircuitTable.Circuit[0].Location.Locality", equalTo("Melbourne")).
-                log().all();
+            statusCode(200).
+            header("Content-Type", "application/xml; charset=utf-8").
+            body("MRData.CircuitTable.Circuit[0].CircuitName", equalTo("Albert Park Grand Prix Circuit")).
+            body("MRData.CircuitTable.Circuit[0].Location.Locality", equalTo("Melbourne")).
+            log().all();
     }
 }

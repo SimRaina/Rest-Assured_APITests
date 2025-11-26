@@ -16,9 +16,7 @@ public class GET_OpenWeather_City {
 	
 	@Test(priority=1)
 	public void getOpenWeatherCity() {
-		
-		// Without given(), when(), then()
-		
+
 		Response resp = get(host+"/data/2.5/weather?q=London,uk&appid=b1b15e88fa797225412429c1c50c122a1");
 		
 		int code=resp.getStatusCode();

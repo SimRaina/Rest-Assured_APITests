@@ -30,13 +30,13 @@ public class E2E_Typicode_User {
 
         Response response =
                 given()
-                        .contentType("application/json")
-                        .body(json)
+                    .contentType("application/json")
+                    .body(json)
                 .when()
-                        .post("/posts")
+                    .post("/posts")
                 .then()
-                        .statusCode(201)
-                        .extract().response();
+                    .statusCode(201)
+                    .extract().response();
 
         System.out.println("Response is: " + response.asString());
     }

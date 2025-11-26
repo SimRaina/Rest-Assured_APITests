@@ -68,6 +68,5 @@ public class BooksAPIe2eTest {
         given().
         when().delete(url+uri+isbn).
         then().log().all();
-
     }
 }

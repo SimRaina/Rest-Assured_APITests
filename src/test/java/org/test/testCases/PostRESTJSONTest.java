@@ -16,15 +16,12 @@ public class PostRESTJSONTest {
 
     @BeforeTest
     public void postData(){
-         // Creating our test data
         map.put("name", "Simran");
         map.put("job", "QA");
     }
 
     @Test
     public void postRestJSONTest(){
-
-
         given().
                 contentType("application/json").
                 header("myheader", "test").
@@ -36,6 +33,5 @@ public class PostRESTJSONTest {
                 statusLine("HTTP/1.1 201 Created").
                 body("name", equalTo("Simran")).
                 header("Content-Type", "application/json; charset=utf-8");
-
     }
 }
