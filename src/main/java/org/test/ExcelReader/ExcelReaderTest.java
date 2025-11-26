@@ -33,10 +33,8 @@ public class ExcelReaderTest {
 
             columnCount = sheet.getRow(0).getLastCellNum(); // 1 to 3
 
-
             row = sheet.getRow(rowNumber); // TC01-> rowNumber = 1
-
-
+            
             loginValues = new ArrayList<String>(); // flushing of the old values
 
             for(i = 0; i<columnCount; i++){ // loop for columns

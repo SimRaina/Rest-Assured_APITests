@@ -40,7 +40,6 @@ public class ExtentManager {
 		extent.setSystemInfo("OS", "Windows 10");
 		extent.setSystemInfo("AUT", "QA");
 		extent.setSystemInfo("Test Executed By", "Simran R");
- 
         return extent;
     }
      

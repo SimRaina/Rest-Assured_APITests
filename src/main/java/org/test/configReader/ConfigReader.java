@@ -6,26 +6,19 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class ConfigReader {
-static Properties p=null;
+
+	static Properties p=null;
 	
-	
-	
-	public ConfigReader() throws IOException
-	{
-	
-	p=new Properties(); // object creation
-	
-	File file = null;
- 
-	file=new File(System.getProperty("user.dir")+"\\Resources\\"+"\\ConfigFiles\\"+"Env.properties");
-	 	
-	FileInputStream in=new FileInputStream(file); // reading the file
-	p.load(in);
+	public ConfigReader() throws IOException {
+		p=new Properties(); // object creation
+		File file = null;
+ 		file=new File(System.getProperty("user.dir")+"\\Resources\\"+"\\ConfigFiles\\"+"Env.properties");
+	 	FileInputStream in=new FileInputStream(file); // reading the file
+		p.load(in);
 	}
 	
 	
-	public static String getValueFromPropertyFile(String key) 
-	{
+	public static String getValueFromPropertyFile(String key) {
 		if(p==null)
 		{
 			try {
@@ -34,11 +27,9 @@ static Properties p=null;
 				e.printStackTrace();
 			}
 		}
-		
 		String value=p.getProperty(key);
 		return value;
 	}
-
 }
 
 

@@ -9,9 +9,8 @@ import com.aventstack.extentreports.Status;
 import org.test.ExtentReportHelper.ExtentManager;
 import org.test.ExtentReportHelper.ExtentTestManager;
 
-public class ListenerTest implements ITestListener{
+public class ListenerTest implements ITestListener {
 	
-
 	public void onTestStart(ITestResult result) {
 		System.out.println(result.getName()+" test case started");
 		ExtentTestManager.startTest(result.getMethod().getMethodName());
@@ -46,6 +45,5 @@ public class ListenerTest implements ITestListener{
 		ExtentManager.getInstance().flush();
 		
 	}
-
 }
 
