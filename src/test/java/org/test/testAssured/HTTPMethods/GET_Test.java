@@ -14,13 +14,10 @@ public class GET_Test {
 	
 	@Test
 	public void getAllBooks() {
-		
-       given()
-          // We don't need to set any prerequisite
-       .when()
+      given()
+      .when()
           .get(host+"/books")  // http://127.0.0.1:5000/books
-          
-       .then()
+      .then()
           .statusCode(200).and()
           .statusLine("HTTP/1.0 200 OK")
           .body("books[0].name", equalTo("Test Book 1"))
@@ -30,20 +27,15 @@ public class GET_Test {
 	
 	@Test
 	public void getBookByISBN() {
-		
-       given()
-         // NA
-       
-        .when()
-          .get(host+"/books/100") // http://127.0.0.1:5000/books
-          
-        .then()
-          .statusCode(200)
-          .statusLine("HTTP/1.0 200 OK")
-          .body("name", equalTo("Test Book 1"))
-          .body("price", equalTo(299))
-          .header("Content-Type", "application/json")
-          .log().all();	
+      given()
+      .when()
+         .get(host+"/books/100") // http://127.0.0.1:5000/books
+      .then()
+         .statusCode(200)
+         .statusLine("HTTP/1.0 200 OK")
+         .body("name", equalTo("Test Book 1"))
+         .body("price", equalTo(299))
+         .header("Content-Type", "application/json")
+         .log().all();	
 	}
-
 }

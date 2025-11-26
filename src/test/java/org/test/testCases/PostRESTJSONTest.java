@@ -10,7 +10,7 @@ import static org.hamcrest.Matchers.equalTo;
 
 public class PostRESTJSONTest {
 
-    HashMap map = new HashMap();  // generic hashmap because data could be of any data type
+    HashMap<String, String> map = new HashMap<>(); 
 
     String url = "https://reqres.in/api/users";
 

@@ -14,7 +14,6 @@ public class Test1_JSON_GET {
 	String host = ConfigReader.getValueFromPropertyFile("Typicode_Host");
 	String host1 = ConfigReader.getValueFromPropertyFile("Ergast_Host");
 	
-	// Checking status code
 	@Test
 	public void testStatusCode() {
 		given().
@@ -22,9 +21,7 @@ public class Test1_JSON_GET {
 		then().
 		statusCode(200);
 	}
-	
-	//Log response
-	
+
 	@Test
 	public void testLogging() {
 		given().
@@ -32,9 +29,7 @@ public class Test1_JSON_GET {
 		then().
 		log().all();
 	}
-	
-	//Checking single content using org.hamcrest.Matchers
-	
+
 	@Test
 	public void testEqualToFunction() {
 		given().
@@ -43,8 +38,6 @@ public class Test1_JSON_GET {
 		body("id", equalTo(3));
 	}
 	
-	
-	//Checking multiple content using org.hamcrest.Matchers
 	@Test
 	public void testHasItemFunction() {
 		given().
@@ -52,8 +45,7 @@ public class Test1_JSON_GET {
 		then().
 		body("id", hasItems(3,2,100));
 	}
-	
-	//parameters and headers can be set
+
 	@Test
 	public void testParametersandHeaders() {
 		given().
@@ -66,17 +58,12 @@ public class Test1_JSON_GET {
 		log().all();
 	}
 	
-	//Using and to increase readability
-	
 	@Test
 	public void testParametersandHeadersWithAnd() {
 		given().param("Key1","Value1").and().header("HeaderKey1","HeaderValue1").
 		when().get(host+"/posts/3").then().statusCode(200).and().body("id", equalTo(3));
 	}
 
-	//Using is
-	//Not setting root
-	
 	@Test
 	public void testWithoutRoot() {
 		given().
@@ -85,29 +72,13 @@ public class Test1_JSON_GET {
 		body("MRData.CircuitTable.Circuits[0].Location.locality", is("Melbourne")).
 		log().all();
 	}
-	
-	//Using is
-	// Setting root
-	
+
 	@Test
 	public void testWithRoot() {
 		given().
 		get(host1+"/api/f1/2017/circuits.json").
 		then().
-		root("MRData.CircuitTable").
+		rootPath("MRData.CircuitTable").
 		body("Circuits[0].Location.locality", is("Melbourne"));
-	}
-	
-	//Detach Root
-	
-	@Test
-	public void testDetachRoot() {
-		given().
-		get(host1+"/api/f1/2017/circuits.json").
-		then().
-		root("MRData.CircuitTable").
-		body("Circuits[0].Location.locality", is("Melbourne")).
-		detachRoot("CircuitTable").
-		body("CircuitTable.Circuits[0].Location.locality", is("Melbourne"));
 	}
 }

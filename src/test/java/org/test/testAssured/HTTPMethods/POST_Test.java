@@ -15,11 +15,11 @@ public class POST_Test {
 	
 	String host = ConfigReader.getValueFromPropertyFile("DummyRest_Host");
 	
-	public HashMap map = new HashMap();  // Create generic HashMap to accommodate different data types 
+	public HashMap<String, String> map = new HashMap<>(); 
 	
 	String name = "Simran";
-	int salary = 140000;
-	int age = 30;
+	String salary = "140000";
+	String age = "30";
 
     @BeforeTest
 	public void postTestData() { // run this explicitly when we are passing the global parameters inside the map
@@ -27,19 +27,15 @@ public class POST_Test {
 		map.put("name", name);
         map.put("salary", salary);
         map.put("age", age);
-       System.out.println(map);
 	}
 	
 	@Test
 	public void testPost() {
-	
 		given()
 		   .contentType("application/json")
 		   .body(map)
-		
 		.when()
 		   .post(host+"/api/v1/create")
-		
 		.then()
 			.statusCode(200)
 			.log().all()
@@ -48,11 +44,6 @@ public class POST_Test {
 			.body("data.name", equalTo(name))
 			.body("data.salary", equalTo(salary))
 			.body("data.age", equalTo(age))
-			.header("Content-Type", "application/json");
-			
-				
-		 
+			.header("Content-Type", "application/json");	 
 	}
-	
-
 }

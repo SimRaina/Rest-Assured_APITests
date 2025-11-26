@@ -3,11 +3,9 @@ package org.test.testAssured.e2e;
 import java.util.ArrayList;
 import static io.restassured.RestAssured.*;
 
-import org.junit.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-import io.restassured.response.Response;
 import org.test.configReader.ConfigReader;
 import org.test.ExcelReader.ExcelReaderTest;
 
@@ -36,16 +34,11 @@ public class E2E_WSTest {
 		contentType = data.get(2);
 		request = data.get(3);
 		
-		
-		
-				given().
-				when().get(host+uri).
-				then().
-				statusCode(200).and().
-				header("Content-Type", contentType).log().all();
-		
-		
-			
+		given().
+		when().get(host+uri).
+		then().
+			statusCode(200).and().
+			header("Content-Type", contentType).log().all();		
 	}
 	
 	@Test(dependsOnMethods = "e2e_GET")
@@ -58,15 +51,12 @@ public class E2E_WSTest {
 		contentType = data.get(2);
 		request = data.get(3);
 		
-		
-		
-				given().header("Content-Type", contentType).
-				body(request).
-				when().post(host+uri).
-				then().
-				statusCode(200).and().
-				header("Content-Type", contentType).log().all();
-			
+		given().header("Content-Type", contentType)
+			   .body(request).
+		when().post(host+uri).
+		then().statusCode(200).and()
+		      .header("Content-Type", contentType)
+			  .log().all();		
 	}
 	
 	@Test(dependsOnMethods = "e2e_POST")
@@ -80,15 +70,12 @@ public class E2E_WSTest {
 		contentType = data.get(2);
 		request = data.get(3);
 		
-		
-		
-				given().header("Content-Type", contentType).
-				body(request).
-				when().put(host+uri+"/"+isbn). // http://localhost:5000/books/103
-				then().
-				statusCode(200).and().
-				header("Content-Type", contentType).log().all();
-		
+		given().header("Content-Type", contentType)
+			   .body(request).
+		when().put(host+uri+"/"+isbn). // http://localhost:5000/books/103
+		then().statusCode(200).and()
+			  .header("Content-Type", contentType)
+			  .log().all();
 	}
 	
 	@Test(dependsOnMethods = "e2e_PUT")
@@ -96,17 +83,15 @@ public class E2E_WSTest {
 		
 		excel = new ExcelReaderTest();
 		int rowNumber = 4;
-		
 		data=excel.getData(filepath,"testData.xlsx", "e2eData", rowNumber);
 		uri = data.get(1);
 		contentType = data.get(2);
 		
-		
-		
-				given().
-				when().delete(host+uri+"/"+isbn).
-				then().
-				statusCode(200).and().log().all();
+		given().
+		when().delete(host+uri+"/"+isbn).
+		then().statusCode(200)
+		.and()
+		.log().all();
 		
 	}
 }
